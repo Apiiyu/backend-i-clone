@@ -8,15 +8,12 @@ class PostsService {
     try {
       const imageCollections = []
 
-      console.log(images, 'images');
       await Promise.all(
         await images.map(async (image) => {
           const { url } = await Cloudinary.upload(image)
-          console.log(image, 'image');
           imageCollections.push(url)
         })
       );
-      console.log(imageCollections, 'image collections');
 
       const { createdPost } = await PostsRepository.create({ images: imageCollections, description, user_id });
 

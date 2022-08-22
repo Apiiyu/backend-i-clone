@@ -136,8 +136,6 @@ class AuthService {
         expiresIn: JWT_EXPIRES_IN,
       })
 
-      console.log(token, 'token');
-
       return {
         status: true,
         error: null,
